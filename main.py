@@ -1,6 +1,6 @@
 import sys
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *#QAction   QApplication 
+from PyQt5.QtCore import *                                     #Unable to find seperate functions. *Work needed*
+from PyQt5.QtWidgets import *                                  #QAction and QApplication few of the functions. *Work needed*
 from PyQt5.QtWebEngineWidgets import QWebEngineView 
 
 
