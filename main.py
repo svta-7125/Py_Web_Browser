@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtWebEngineWidgets import *
+from PyQt5.QtWidgets import *#QAction   QApplication 
+from PyQt5.QtWebEngineWidgets import QWebEngineView 
 
 
 class MainWindow(QMainWindow):
@@ -12,29 +12,29 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.browser)
         self.showMaximized()
 
-        # navbar
-        navbar = QToolBar()
-        self.addToolBar(navbar)
+        # NavigationBar
+        NavigationBar = QToolBar()
+        self.addToolBar(NavigationBar)
 
-        back_btn = QAction('<---', self)
-        back_btn.triggered.connect(self.browser.back)
-        navbar.addAction(back_btn)
+        back_button = QAction('<---', self)
+        back_button.triggered.connect(self.browser.back)
+        NavigationBar.addAction(back_button)
 
-        forward_btn = QAction('--->', self)
-        forward_btn.triggered.connect(self.browser.forward)
-        navbar.addAction(forward_btn)
+        forward_button = QAction('--->', self)
+        forward_button.triggered.connect(self.browser.forward)
+        NavigationBar.addAction(forward_button)
 
-        reload_btn = QAction('Q', self)
-        reload_btn.triggered.connect(self.browser.reload)
-        navbar.addAction(reload_btn)
+        reload_button = QAction('Q', self)
+        reload_button.triggered.connect(self.browser.reload)
+        NavigationBar.addAction(reload_button)
 
-        home_btn = QAction('~_~', self)
-        home_btn.triggered.connect(self.navigate_home)
-        navbar.addAction(home_btn)
+        home_button = QAction('~_~', self)
+        home_button.triggered.connect(self.navigate_home)
+        NavigationBar.addAction(home_button)
 
         self.url_bar = QLineEdit()
         self.url_bar.returnPressed.connect(self.navigate_to_url)
-        navbar.addWidget(self.url_bar)
+        NavigationBar.addWidget(self.url_bar)
 
         self.browser.urlChanged.connect(self.update_url)
 
